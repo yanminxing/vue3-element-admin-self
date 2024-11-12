@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <el-button type="primary">111</el-button>
-  <HelloWorld msg="Vite + Vue" />
+  <router-view/>
+
 </template>
 
 <style scoped>

@@ -64,4 +64,34 @@ const createFn = () => {
 createFn()
 ```
 
+### 1.2.3 使用vue-router 
+``` bash
+# 安装依赖
+ npm install vue-router@4
+```
+
+``` typescript
+ // 定义 src/router/index.ts
+ import {createRouter, createWebHashHistory} from 'vue-router';
+import HelloWorld  from '../components/HelloWorld.vue';
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    {
+      path: '/',
+      redirect: '/home'
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: HelloWorld
+    },
+  ]
+})
+
+export default router
+```
+![引入 修改main.ts](./projectImages/2024_11/02.png)
+
 
