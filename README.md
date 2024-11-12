@@ -92,6 +92,59 @@ const router = createRouter({
 
 export default router
 ```
-![引入 修改main.ts](./projectImages/2024_11/02.png)
+![引入 修改main.ts](./projectImages/2024_11/02.png)  
 
+### 1.2.4 路径别名@   
+ 1 下载依赖    
+ 在 ts 模块中加载 node 核心模块需要安装 node 的类型补充模块: npm i -D @types/node
+```bash  
+npm i -D @types/node
+```  
+2 在 tsconfig.json 文件中配置路径别名  
+
+
+```json
+{
+ "compilerOptions": {
+  /*Vite 路径别名报错*/
+  "baseUrl": "./",
+  "paths" : {
+   "@": ["src"],
+   "@/*": ["src/*"],
+   "@router/*": ["src/router/*"]
+  }
+ },
+ "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+}
+
+```
+
+3 在 vite.config.ts配置 
+```typescript
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'  // 在 ts 模块中加载 node 核心模块需要安装 node 的类型补充模块: npm i -D @types/node
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    // Vite2设置别名路径方式一
+/*    alias: {
+      "@": path.resolve( "./src")
+    }*/
+    alias: [
+        {
+          find: '@',
+          replacement: path.resolve( './src')
+        },
+      {
+        find: '@router',
+        replacement: path.resolve( './src/router')
+      },
+    ]
+  }
+})
+
+```
 
