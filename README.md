@@ -239,4 +239,39 @@ export default service
 
 1 环境变量智能提示修改地址：src/vite-env.d.ts  
 2 需要注意的是
-![](./projectImages/2024_11/03.png)
+![](./projectImages/2024_11/03.png)  
+
+### 1.2.8 使用vuex 
+``` bash
+# 安装依赖
+ npm install vuex
+```
+```typescript
+// 定义 src/store/index.ts
+import {InjectionKey} from 'vue'
+import {createStore, Store} from 'vuex'
+
+export interface State {
+ count: number
+}
+
+export const key: InjectionKey<Store<State>> = Symbol()
+
+export const store = createStore<State>({
+ state() {
+  return {
+   count: 0
+  }
+ },
+ mutations: {
+  increment(state: { count: number }) {
+   state.count++
+  }
+ }
+})
+```
+2 在 main.ts 中引入 store 并挂载到根实例上  
+![](./projectImages/2024_11/05.png)  
+
+3 注意点：  
+![](./projectImages/2024_11/04.png) 
