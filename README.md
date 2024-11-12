@@ -234,3 +234,9 @@ service.interceptors.response.use(({data})=>{
 export default service
 
 ```
+
+### 1.2.7 修改多环境变量配置和添加智能提示
+
+1 环境变量智能提示修改地址：src/vite-env.d.ts  
+2 需要注意的是
+![](./projectImages/2024_11/03.png)
