@@ -38,4 +38,30 @@ npm install
 npm run dev
 ```
 
+### 1.2.2 使用element-plus 
+``` bash
+# 安装依赖
+ npm install element-plus --save
+```
+
+``` typescript
+ // 全局引入 修改main.ts
+import { createApp } from 'vue'
+import './style.css'
+import App from './App.vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
+
+const createFn = () => {
+  const app = createApp(App)
+
+  app.use(ElementPlus)
+
+  app.mount('#app')
+}
+
+createFn()
+```
+
 
