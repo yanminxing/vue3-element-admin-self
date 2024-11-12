@@ -148,3 +148,14 @@ export default defineConfig({
 
 ```
 
+### 1.2.5 多环境配置
+1 配置环境变量文件.env.development 和.env.production等  
+2 在 package.json中配置脚本命令 
+```json
+  "scripts": {
+    "dev": "vite serve --mode development",
+    "build:prod": "vue-tsc --noEmit && vite build --mode production",
+    "preview": "vite preview"
+  },
+```
+
